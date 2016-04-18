@@ -48,7 +48,10 @@ public class NumericConverters {
 		 */
 		@Override
 		public Double convertTo(BigDecimal source, Type<Double> destinationType) {
-			return source.doubleValue();
+			if (source == null) {
+				return null;
+			}
+			return Double.valueOf(source.doubleValue());
 		}
 
 		/* (non-Javadoc)
@@ -57,6 +60,9 @@ public class NumericConverters {
 		@Override
 		public BigDecimal convertFrom(Double source,
 				Type<BigDecimal> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			return BigDecimal.valueOf(source.doubleValue());
 		}
 	}
@@ -77,7 +83,10 @@ public class NumericConverters {
 		 */
 		@Override
 		public Float convertTo(BigDecimal source, Type<Float> destinationType) {
-			return source.floatValue();
+			if (source == null) {
+				return null;
+			}
+			return Float.valueOf(source.floatValue());
 		}
 
 		/* (non-Javadoc)
@@ -86,6 +95,9 @@ public class NumericConverters {
 		@Override
 		public BigDecimal convertFrom(Float source,
 				Type<BigDecimal> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			return BigDecimal.valueOf(source.doubleValue());
 		}
 	}
@@ -119,10 +131,13 @@ public class NumericConverters {
 		 */
 		@Override
 		public Long convertTo(BigInteger source, Type<Long> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			if (!truncate && (source.compareTo(MAX_LONG) > 0 || source.compareTo(MIN_LONG) < 0)) {
 				throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Long.class.getCanonicalName());
 			}
-			return source.longValue();
+			return Long.valueOf(source.longValue());
 		}
 
 		/* (non-Javadoc)
@@ -131,6 +146,9 @@ public class NumericConverters {
 		@Override
 		public BigInteger convertFrom(Long source,
 				Type<BigInteger> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			return BigInteger.valueOf(source.longValue());
 		}
 	}
@@ -163,10 +181,13 @@ public class NumericConverters {
 		 */
 		@Override
 		public Integer convertTo(BigInteger source, Type<Integer> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			if (!truncate && (source.compareTo(MAX_INT) > 0 || source.compareTo(MIN_INT) < 0)) {
 				throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Integer.class.getCanonicalName());
 			}
-			return source.intValue();
+			return Integer.valueOf(source.intValue());
 		}
 
 		/* (non-Javadoc)
@@ -175,6 +196,9 @@ public class NumericConverters {
 		@Override
 		public BigInteger convertFrom(Integer source,
 				Type<BigInteger> destinationType) {
+			if (source == null) {
+				return null;
+			}
 			return BigInteger.valueOf(source.longValue());
 		}
 	}
@@ -205,10 +229,13 @@ public class NumericConverters {
          */
         @Override
         public Short convertTo(Integer source, Type<Short> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((int) Short.MAX_VALUE) > 0 || source.compareTo((int) Short.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Short.class.getCanonicalName());
             }
-            return source.shortValue();
+            return Short.valueOf(source.shortValue());
         }
 
         /* (non-Javadoc)
@@ -216,7 +243,10 @@ public class NumericConverters {
          */
         @Override
         public Integer convertFrom(Short source, Type<Integer> destinationType) {
-            return source.intValue();
+        	if (source == null) {
+				return null;
+			}
+            return Integer.valueOf(source.intValue());
         }
     }
     
@@ -245,10 +275,13 @@ public class NumericConverters {
          */
         @Override
         public Short convertTo(Long source, Type<Short> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((long) Short.MAX_VALUE) > 0 || source.compareTo((long) Short.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Short.class.getCanonicalName());
             }
-            return source.shortValue();
+            return Short.valueOf(source.shortValue());
         }
 
         /* (non-Javadoc)
@@ -256,7 +289,10 @@ public class NumericConverters {
          */
         @Override
         public Long convertFrom(Short source, Type<Long> destinationType) {
-            return source.longValue();
+        	if (source == null) {
+				return null;
+			}
+            return Long.valueOf(source.longValue());
         }
     }
 	
@@ -285,10 +321,13 @@ public class NumericConverters {
          */
         @Override
         public Integer convertTo(Long source, Type<Integer> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((long) Integer.MAX_VALUE) > 0 || source.compareTo((long) Integer.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Integer.class.getCanonicalName());
             }
-            return source.intValue();
+            return Integer.valueOf(source.intValue());
         }
 
         /* (non-Javadoc)
@@ -296,7 +335,10 @@ public class NumericConverters {
          */
         @Override
         public Long convertFrom(Integer source, Type<Long> destinationType) {
-            return source.longValue();
+        	if (source == null) {
+				return null;
+			}
+            return  Long.valueOf(source.longValue());
         }
     }
 	
@@ -324,6 +366,9 @@ public class NumericConverters {
          */
         @Override
         public Long convertTo(Double source, Type<Long> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((double) Long.MAX_VALUE) > 0 || source.compareTo((double) Long.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Long.class.getCanonicalName());
             }
@@ -335,7 +380,10 @@ public class NumericConverters {
          */
         @Override
         public Double convertFrom(Long source, Type<Double> destinationType) {
-            return source.doubleValue();
+        	if (source == null) {
+				return null;
+			}
+            return Double.valueOf(source.doubleValue());
         }
     }
     
@@ -363,10 +411,13 @@ public class NumericConverters {
          */
         @Override
         public Integer convertTo(Double source, Type<Integer> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((double) Integer.MAX_VALUE) > 0 || source.compareTo((double) Integer.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Integer.class.getCanonicalName());
             }
-            return source.intValue();
+            return Integer.valueOf(source.intValue());
         }
 
         /* (non-Javadoc)
@@ -374,7 +425,10 @@ public class NumericConverters {
          */
         @Override
         public Double convertFrom(Integer source, Type<Double> destinationType) {
-            return source.doubleValue();
+        	if (source == null) {
+				return null;
+			}
+            return Double.valueOf(source.doubleValue());
         }
     }
     
@@ -402,10 +456,13 @@ public class NumericConverters {
          */
         @Override
         public Short convertTo(Double source, Type<Short> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((double) Short.MAX_VALUE) > 0 || source.compareTo((double) Short.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Short.class.getCanonicalName());
             }
-            return source.shortValue();
+            return Short.valueOf(source.shortValue());
         }
 
         /* (non-Javadoc)
@@ -413,7 +470,10 @@ public class NumericConverters {
          */
         @Override
         public Double convertFrom(Short source, Type<Double> destinationType) {
-            return source.doubleValue();
+        	if (source == null) {
+				return null;
+			}
+            return Double.valueOf(source.doubleValue());
         }
     }
     
@@ -443,10 +503,13 @@ public class NumericConverters {
          */
         @Override
         public Long convertTo(Float source, Type<Long> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((float) Long.MAX_VALUE) > 0 || source.compareTo((float) Long.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Long.class.getCanonicalName());
             }
-            return source.longValue();
+            return Long.valueOf(source.longValue());
         }
 
         /* (non-Javadoc)
@@ -454,7 +517,10 @@ public class NumericConverters {
          */
         @Override
         public Float convertFrom(Long source, Type<Float> destinationType) {
-            return source.floatValue();
+        	if (source == null) {
+				return null;
+			}
+            return Float.valueOf(source.floatValue());
         }
     }
     
@@ -482,10 +548,13 @@ public class NumericConverters {
          */
         @Override
         public Integer convertTo(Float source, Type<Integer> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((float) Integer.MAX_VALUE) > 0 || source.compareTo((float) Integer.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Integer.class.getCanonicalName());
             }
-            return source.intValue();
+            return Integer.valueOf(source.intValue());
         }
 
         /* (non-Javadoc)
@@ -493,7 +562,10 @@ public class NumericConverters {
          */
         @Override
         public Float convertFrom(Integer source, Type<Float> destinationType) {
-            return source.floatValue();
+        	if (source == null) {
+				return null;
+			}
+            return Float.valueOf(source.floatValue());
         }
     }
     
@@ -521,10 +593,13 @@ public class NumericConverters {
          */
         @Override
         public Short convertTo(Float source, Type<Short> destinationType) {
+        	if (source == null) {
+				return null;
+			}
             if (!truncate && (source.compareTo((float) Short.MAX_VALUE) > 0 || source.compareTo((float) Short.MIN_VALUE) < 0)) {
                 throw new ArithmeticException("Overflow: " + source + " cannot be represented by " + Short.class.getCanonicalName());
             }
-            return source.shortValue();
+            return Short.valueOf(source.shortValue());
         }
 
         /* (non-Javadoc)
@@ -532,7 +607,7 @@ public class NumericConverters {
          */
         @Override
         public Float convertFrom(Short source, Type<Float> destinationType) {
-            return source.floatValue();
+            return Float.valueOf(source.floatValue());
         }
     }
     
