@@ -52,7 +52,9 @@ public interface Converter<S, D> extends MappedTypePair<S, D> {
         }
         
         public D convert(S source, Type<? extends D> destinationType) {
-            
+            if (source == null) {
+            	return null;
+            }
             return delegate.convert(source, destinationType.getRawType());
         }
 

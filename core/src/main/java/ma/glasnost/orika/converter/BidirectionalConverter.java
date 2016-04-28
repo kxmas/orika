@@ -42,6 +42,9 @@ public abstract class BidirectionalConverter<S, D> extends CustomConverter<Objec
     
     @SuppressWarnings("unchecked")
     public Object convert(Object source, Type<? extends Object> destinationType) {
+    	if (source == null) {
+    		return null;
+    	}
         if (this.destinationType.isAssignableFrom(destinationType) || this.destinationType.isWrapperFor(destinationType)
                 || this.destinationType.isPrimitiveFor(destinationType)) {
             return convertTo((S) source, (Type<D>) destinationType);
